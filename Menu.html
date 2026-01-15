@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #4285f4;
+        --bg-color: #f0f2f5;
+        --card-bg: #ffffff;
+        --text-color: #333333;
+      }
+
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 40px 20px;
+        color: var(--text-color);
+      }
+
+      /* 헤더 디자인 */
+      header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+      .subtitle {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      /* 🚀 핵심: 반응형 그리드 레이아웃 */
+      .grid-container {
+        display: grid;
+        /* 카드의 최소 너비를 280px로 설정. 화면이 넓어지면 자동으로 열 개수가 늘어남 */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px; /* 전체 최대 너비 제한 */
+        margin: 0 auto; /* 중앙 정렬 */
+      }
+
+      /* 카드 디자인 */
+      .project-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 30px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border: 1px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* 마우스 올렸을 때 효과 */
+      .project-card:hover {
+        transform: translateY(-7px); /* 살짝 위로 뜸 */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-color: var(--primary-color);
+      }
+
+      /* 아이콘 (이모지) */
+      .card-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        color: #2c3e50;
+      }
+
+      .card-desc {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* 나중에 추가될 자리 표시용 (Coming Soon) */
+      .coming-soon {
+        opacity: 0.6;
+        cursor: default;
+        background-color: #f9f9f9;
+        border: 2px dashed #ddd;
+        box-shadow: none;
+      }
+      .coming-soon:hover {
+        transform: none;
+        border-color: #ddd;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>🚀 GAS 3D Lab</h1>
+      <div class="subtitle">Google Apps Script x Three.js 프로젝트 보관소</div>
+    </header>
+    
+    <div class="grid-container">
+      
+      <a href="<?= url ?>?page=Index" class="project-card">
+        <div class="card-icon">🧊</div>
+        <h3 class="card-title">Basic Cube Viewer</h3>
+        <p class="card-desc">Three.js의 가장 기초가 되는 회전하는 큐브 예제입니다. 마우스 컨트롤을 익혀보세요.</p>
+      </a>
+
+      <a href="<?= url ?>?page=F1Project" class="project-card">
+        <div class="card-icon">🏎️</div>
+        <h3 class="card-title">F1 Showroom</h3>
+        <p class="card-desc">외부 GLB 모델 파일을 불러와서 전시하는 쇼룸입니다. 실제 차량 모델링을 띄워볼 수 있습니다.</p>
+      </a>
+
+      <div class="project-card coming-soon">
+        <div class="card-icon">🚧</div>
+        <h3 class="card-title">Coming Soon</h3>
+        <p class="card-desc">새로운 3D 프로젝트가 준비 중입니다.</p>
+      </div>
+
+    </div>
+
+  </body>
+</html>
